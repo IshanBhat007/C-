@@ -1,0 +1,43 @@
+include <iostream>
+#include <string>
+using namespace std;
+
+class Course {
+    private:
+        string courseName;
+        int courseCode;
+        int coursegrade;
+    
+    public:
+        // Parameterized constructor
+        Course(string name, int code,int cg) {
+            courseName = name;
+            courseCode = code;
+            coursegrade = cg; 
+        }
+        
+        // Function to update course details
+        void updateCourse(string name, int code,int cg) {
+            courseName = name;
+            courseCode = code;
+            coursegrade = cg; 
+        }
+        
+        // Function to display course details
+        void displayCourse() {
+            cout << "Course Name: " << courseName << endl;
+            cout << "Course Code: " << courseCode << endl;
+            cout << "Course grade: " << coursegrade << endl;
+        }
+};
+
+int main() {
+    Course c("C++", 211,100); // Creating an instance of the Course class using the parameterized constructor
+    c.displayCourse();
+    
+    cout << "Updating course details..." << endl;
+    c.updateCourse("Algorithms", 222,150);
+    c.displayCourse();
+    
+    return 0;
+}
