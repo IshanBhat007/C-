@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Course {
+    private:
+        string courseName;
+        int courseCode;
+        int courseID;
+    
+    public:
+        // Parameterized constructor
+        Course(string name, int code, int id) {
+            courseName = name;
+            courseCode = code;
+            courseID = id;
+        }
+        
+        // Function to delete course details
+        void deleteCourse() {
+            courseName = "";
+            courseCode = 0;
+            courseID = 0;
+        }
+        
+        // Function to get course details by course_id
+        void getCourseDetails(int id) {
+            if (courseID == id) {
+                cout << "Course Name: " << courseName << endl;
+                cout << "Course Code: " << courseCode << endl;
+                cout << "Course ID: " << courseID << endl;
+            } else {
+            
+                cout << "Course not found." << endl;
+            }
+        }
+};
+
+int main() {
+    Course c("C++", 100, 1);  
+    c.getCourseDetails(1);  
+    
+    cout << "Deleting course details..." << endl;
+    c.deleteCourse();
+    
+    c.getCourseDetails(1);  
+    
+    return 0;
+
+
+}
