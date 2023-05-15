@@ -1,0 +1,62 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class student
+{
+   private:
+   string name;
+   string branch;
+   string department;
+   int p;
+   public:
+   int roll_no;
+   void enterdata()
+   {
+    cout<<"name:";
+    cin>>name;
+    cout<<"RollNo:";
+    cin>>roll_no;
+    cout<<"Branch:";
+    cin>>branch;
+    cout<<"Department:";
+    cin>>department;
+   }
+    int search()
+    {
+        cout<<"Enter the rno to be searched:";
+        cin>>p;
+        return p;
+    }
+
+   void display()
+   {
+    cout<<"----------------STUDENT DETAILS ------------------"<<endl;
+    cout<<"name:"<<name<<endl;
+    cout<<"rno is:"<<roll_no<<endl;
+    cout<<"Branch is:"<<branch<<endl;
+    cout<<"Department  :"<<department<<endl;
+   }
+};
+
+int main()
+{
+    int roll_no;
+    int p;
+    student n;
+    n.takedata();
+    n.display();
+    p = n.search();
+
+    if(n.roll_no==p)
+    {
+        cout<<"Details are:"<<endl;
+        n.display();
+    }
+  else {
+        cout<<"WRONG INFO"<<endl;
+        cout<<"Enter again"<<endl
+     }
+   return 0;
+
+}
