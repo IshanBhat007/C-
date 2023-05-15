@@ -1,0 +1,101 @@
+A ) To allocate appropriate access specifiers to data members of student and course class along with justification in comments.
+#include<iostream>
+#include<string.h>
+using namespace std;
+class course;
+//Student Class
+class student{
+    private: // Protecting data from being manipulated outside of the class
+    char stdname[10],gmail[10],dob[10],add[10];
+    int roll; 
+    public:
+    //Constructor student class
+  student(char stdN[10],int rollno,char email[10],char Dob[10],char Add[10]){
+    strcpy(stdname,stdN);
+    roll = rollno;
+    strcpy(gmail ,email);
+    strcpy(dob , Dob);
+    strcpy(add , Add);
+  };
+  void display(); // To display Result
+  ~student(){   
+    cout<<"Destructor executed in student class "<<endl;
+  };
+};
+class course{
+  private: //Protecting data from being manipulated outside of the class
+  char branch[10],courseName[10];
+  int sem,courseId,courseCredit;
+  public:
+  course(char Branch[10],char CourseName[10],int Sem,int CourseId,int CourseCredit){ //course Class constructor
+       strcpy(branch,Branch);
+       strcpy(courseName,CourseName);
+       sem = Sem;
+       courseId = CourseId;
+       courseCredit = CourseCredit;
+};
+  void display(){
+    cout<<"----------Entered course details: -------------"<<endl;
+        cout<<"Student Sem: "<<sem<<endl;
+        cout<<"Student Branch: "<<branch<<endl;
+        cout<<"Student Course Name: "<<courseName<<endl;
+        cout<<"Student Course id: "<<courseId<<endl;
+        cout<<" Course Credit: "<<courseCredit<<endl;
+  };
+  ~course(){
+    cout<<"Destructor executed in course class"<<endl;
+  };
+};
+
+void student::display(){ // To display Result
+    cout<<"-------------Entered details: -------------"<<endl;
+    cout<<"Student name: "<<stdname<<endl;
+    cout<<"Student roll: "<<roll<<endl;
+    cout<<"Student Email: "<<roll<<endl;
+    cout<<"Student dob: "<<dob<<endl;
+    cout<<"Student address: "<<add<<endl;
+  };
+
+B ?To add the details of a student using a parameterized constructor of student class.
+#include<iostream>
+using namespace std;
+#include<string.h>
+class Student
+{
+    private:
+    char Name[30],Semester[30],Branch[30],Address[30],Roll_No[30];
+    public:
+    Student(char a[30],char b[30],char c[30],char e[30], char d[30])
+    {
+        strcpy(Name,a);
+        strcpy(Semester,b);
+        strcpy(Branch,c);
+        strcpy(Address,e);
+        strcpy(Roll_No,d);
+    }
+    void Output()
+    {
+        cout<<"The Name is : "<<Name<<endl;
+        cout<<"The Semster of the Student is : "<<Semester<<endl;
+        cout<<"The Branch of the Student is : "<<Branch<<endl;
+        cout<<"The Address of the Student is : "<<Address<<endl;
+        cout<<"The Roll Number of the Student is : "<<Roll_No<<endl;
+    }
+};
+int main()
+{
+    char a[30],b[30],c[30],d[30],e[30];
+    cout<<"The Name of the Student is : ";
+    cin>>a;
+    cout<<"The Semster of the Student is : ";
+    cin>>b;
+    cout<<"The Branch of the Student is : ";
+    cin>>c;
+    cout<<"The Address of the Student is : ";
+    cin>>e;
+    cout<<"The Roll Number of the Student is : ";
+    cin>>d;
+    Student S(a,b,c,e,d);
+    S.Output();
+    return 0;
+}
