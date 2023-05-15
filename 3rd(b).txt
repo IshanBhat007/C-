@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student {
+    private:
+        int student_id;
+        string student_name;
+        int student_age;
+
+    public:
+        Student(int id, string name, int age) {
+            student_id = id;
+            student_name = name;
+            student_age = age;
+        }
+
+        void display() {
+            cout << "Student ID: " << student_id << endl;
+            cout << "Student Name: " << student_name << endl;
+            cout << "Student Age: " << student_age << endl;
+        }
+
+        void delete_details() {
+            student_id = 0;
+            student_name = "";
+            student_age = 0;
+        }
+};
+
+int main() {
+    Student s(103, "ISHAN", 19);
+    s.display();
+
+    // delete details of student
+    s.delete_details();
+    cout << "Details deleted successfully!" << endl;
+
+    // display student details after deletion
+    s.display();
+
+    return 0;
+}
