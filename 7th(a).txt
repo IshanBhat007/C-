@@ -1,0 +1,90 @@
+#include <iostream>
+using namespace std;
+
+// Base class: Course
+class Course {
+protected:
+    string name;
+    int duration;
+
+public:
+    Course(string name, int duration) {
+        this->name = name;
+        this->duration = duration;
+    }
+
+    void display() {
+        cout << "Course Name: " << name << endl;
+        cout << "Duration: " << duration << " years" << endl;
+    }
+};
+
+// Derived class: UGCourse (inherits from Course)
+class UGCourse : public Course {
+private:
+    string specialization;
+
+public:
+    UGCourse(string name, int duration, string specialization)
+        : Course(name, duration) {
+         this->specialization = specialization;
+    }
+
+    void display() {
+        Course::display(); // Call base class display() function
+        cout << "Specialization: " << specialization << endl;
+    }
+};
+
+// Derived class: PGCourse (inherits from Course)
+class PGCourse : public Course {
+private:
+    string stream;
+
+public:
+    PGCourse(string name, int duration, string stream)
+        : Course(name, duration) {
+         this->stream = stream;
+    }
+
+    void display() {
+        Course::display(); // Call base class display() function
+        cout << "Stream: " << stream << endl;
+    }
+};
+
+// Derived class: DiplomaCourse (inherits from Course)
+class DiplomaCourse : public Course {
+private:
+    string field;
+
+public:
+    DiplomaCourse(string name, int duration, string field)
+        : Course(name, duration) {
+         this->field = field;
+    }
+
+    void display() {
+        Course::display(); // Call base class display() function
+        cout << "Specialization: " << field << endl;
+    }
+};
+
+int main() {
+    UGCourse ugCourse("BE", 4, "Computer Science");
+    PGCourse pgCourse("MBA", 2, "Marketing");
+    DiplomaCourse diplomaCourse("Diploma Course", 1, "Life Science");
+
+    cout << "UG Course Details:" << endl;
+    ugCourse.display();
+    cout << endl;
+
+    cout << "PG Course Details:" << endl;
+    pgCourse.display();
+    cout << endl;
+
+    cout << "Diploma Course Details:" << endl;
+    diplomaCourse.display();
+
+    return 0;
+}
